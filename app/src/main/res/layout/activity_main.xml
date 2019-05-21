@@ -48,8 +48,8 @@
                 android:id="@+id/button_add_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="showToast"
-                android:text="@string/add_comment" />
+                android:text="@string/add_comment"
+                android:onClick="showToast"/>
 
         </LinearLayout>
 
