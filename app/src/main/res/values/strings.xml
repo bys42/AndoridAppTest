@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Scrolling Text</string>
+    <string name="app_name">Test App</string>
     <string name="article_title">Star Trek</string>
     <string name="article_subtitle">From Wiki</string>
     <string name="article_text">
