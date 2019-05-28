@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Test App</string>
+
+    <string name="main_title">Star Ship</string>
+
+    <string name="reply_title">Receive Reply:</string>
+    <string name="reply_msg">Reply Message</string>
+
+    <string name="editText_main">Transport Object</string>
+
+    <string name="button_trans_confirm">Transport</string>
+    <string name="button_trans_perform">Energize</string>
+
+    <string name="prefix_receive_msg">Received:&#160;</string>
+    <string name="editText_second">Transport Back</string>
+    <string name="button_back">Back to ship</string>
+
+    <string name="show_toast">Show Toast</string>
+    <string name="toast_message_1">Make it so.</string>
+    <string name="toast_message_2">Engage.</string>
+
     <string name="article_title">Star Trek</string>
     <string name="article_subtitle">From Wiki</string>
     <string name="article_text">
@@ -14,13 +33,4 @@ Star Trek has been a cult phenomenon for decades.[1] Fans of the franchise are c
 \n
 Star Trek is noted for its cultural influence beyond works of science fiction.[3] The franchise is also noted for its progressive civil rights stances.[4] The Original Series included one of television\'s first multiracial casts. Star Trek references may be found throughout popular culture from movies such as the submarine thriller Crimson Tide to the animated series South Park.
     </string>
-    <string name="add_comment">ADD COMMENT</string>
-    <string name="toast_message_1">Make it so.</string>
-    <string name="toast_message_2">Engage.</string>
-    <string name="message_received">Message Received</string>
-    <string name="main_title">Star Ship</string>
-    <string name="editText_main">Transpot Object</string>
-
-    <string name="button_trans_confirm">Transport</string>
-    <string name="button_trans_perform">Energize</string>
 </resources>

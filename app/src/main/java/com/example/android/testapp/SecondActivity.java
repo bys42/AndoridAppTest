@@ -1,19 +1,23 @@
-package com.example.android.TestApp;
+package com.example.android.testapp;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
+    public static final String EXTRA_REPLY =
+            "com.example.android.testapp.extra.REPLY";
+
+    private EditText mReply;
+
     private int curToastId;
     private int nextToastId;
-
-    private TransportConfirm mTransConfirm;
-    private TransportPerform mTransPerform;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +29,32 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(
-                            View.SYSTEM_UI_FLAG_FULLSCREEN |
+                    View.SYSTEM_UI_FLAG_FULLSCREEN |
                             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                             View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
                             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY );
         }
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
-        mTransConfirm = new TransportConfirm();
-        mTransPerform = new TransportPerform();
+        String message = getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String prefix = getResources().getString(R.string.prefix_receive_msg);
 
-        Button button = findViewById(R.id.button_transport);
-        button.setOnClickListener(mTransConfirm);
+        TextView textView = findViewById(R.id.text_receive_msg);
+        textView.setText(prefix + message);
+
+        mReply = findViewById(R.id.editText_second);
 
         curToastId =  R.string.toast_message_1;
         nextToastId =  R.string.toast_message_2;
+    }
+
+    public void returnMain(View view) {
+        String reply = mReply.getText().toString();
+        Intent replyIntent = new Intent();
+        replyIntent.putExtra(EXTRA_REPLY, reply);
+        setResult(RESULT_OK, replyIntent);
+        finish();
     }
 
     public void showToast (View view) {
@@ -52,24 +66,4 @@ public class MainActivity extends AppCompatActivity {
         nextToastId = tmp;
     }
 
-    class TransportPerform implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            Button button = (Button)v;
-
-            button.setText(R.string.button_trans_confirm);
-            button.setOnClickListener(mTransConfirm);
-        }
-    }
-
-    class TransportConfirm implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Button button = (Button)v;
-
-            button.setText(R.string.button_trans_perform);
-            button.setOnClickListener(mTransPerform);
-        }
-    }
 }
