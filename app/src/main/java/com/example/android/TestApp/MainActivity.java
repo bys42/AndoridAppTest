@@ -5,11 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Toast curToast;
-    Toast nextToast;
+    private int curToastId;
+    private int nextToastId;
+
+    private TransportConfirm mTransConfirm;
+    private TransportPerform mTransPerform;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +33,43 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
 
-        curToast = Toast.makeText(this, R.string.toast_message_1, Toast.LENGTH_SHORT);
-        nextToast = Toast.makeText(this, R.string.toast_message_2, Toast.LENGTH_SHORT);
+        mTransConfirm = new TransportConfirm();
+        mTransPerform = new TransportPerform();
+
+        Button button = findViewById(R.id.button_transport);
+        button.setOnClickListener(mTransConfirm);
+
+        curToastId =  R.string.toast_message_1;
+        nextToastId =  R.string.toast_message_2;
     }
 
     public void showToast (View view) {
-        curToast.show();
+        Toast toast = Toast.makeText(this, curToastId, Toast.LENGTH_SHORT);
+        toast.show();
 
-        Toast tmp = curToast;
-        curToast = nextToast;
-        nextToast = tmp;
+        int tmp = curToastId;
+        curToastId = nextToastId;
+        nextToastId = tmp;
+    }
+
+    class TransportPerform implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            Button button = (Button)v;
+
+            button.setText(R.string.button_trans_confirm);
+            button.setOnClickListener(mTransConfirm);
+        }
+    }
+
+    class TransportConfirm implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Button button = (Button)v;
+
+            button.setText(R.string.button_trans_perform);
+            button.setOnClickListener(mTransPerform);
+        }
     }
 }

@@ -17,4 +17,10 @@ Star Trek is noted for its cultural influence beyond works of science fiction.[3
     <string name="add_comment">ADD COMMENT</string>
     <string name="toast_message_1">Make it so.</string>
     <string name="toast_message_2">Engage.</string>
+    <string name="message_received">Message Received</string>
+    <string name="main_title">Star Ship</string>
+    <string name="editText_main">Transpot Object</string>
+
+    <string name="button_trans_confirm">Transport</string>
+    <string name="button_trans_perform">Energize</string>
 </resources>
